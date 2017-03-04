@@ -10,6 +10,7 @@ cache: pip
 
 install:
 - pip install -r reqs/dev.txt
+- pip install -r reqs/run.txt
 
 script:
 - pylint $MOD

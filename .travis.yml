@@ -1,0 +1,28 @@
+language: python
+
+env:
+- MOD="plusser"
+
+python:
+- '2.7'
+
+cache: pip
+
+install:
+- pip install -r reqs/dev.txt
+
+script:
+- pylint $MOD
+- flake8 $MOD --count
+#- coverage run --source $MOD -m py.test -vs
+#- coverage report --fail-under=70 -m
+
+branches:
+  only:
+  - master
+
+notifications:
+  slack:
+    on_success: never
+    on_failure: change
+    secure: ???

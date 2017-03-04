@@ -17,3 +17,10 @@ Then calculates a running total, and re-inserts back to the file like so:
 2015-01-09 | 14:20:01 +1100 | -1 | N/A | Lost
 2015-01-09 | 19:21:01 +1100 | 00 | N/A | Running Total: 65
 ```
+
+Code Quality Checks
+===================
+[![Build
+Status](https://travis-ci.org/ma-al/plusser.svg?branch=master)](https://travis-ci.org/ma-al/plusser)
+
+Only `pylint` and `flake8` for now.

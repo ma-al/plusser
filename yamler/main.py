@@ -1,4 +1,4 @@
-"""Parses CSVs and outputs a YAML"""
+"""Parses CSVs and outputs a YAML."""
 
 import csv
 import os

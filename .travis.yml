@@ -1,7 +1,8 @@
 language: python
 
 env:
-- MOD="plusser"
+- MOD1="plusser"
+- MOD2="yamler"
 
 python:
 - '2.7'
@@ -13,8 +14,9 @@ install:
 - pip install -r reqs/run.txt
 
 script:
-- pylint $MOD
-- flake8 $MOD --count
+- pylint $MOD1
+- pylint $MOD2
+- flake8 $MOD1 $MOD2 --count
 #- coverage run --source $MOD -m py.test -vs
 #- coverage report --fail-under=70 -m
 

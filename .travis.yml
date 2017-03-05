@@ -1,8 +1,9 @@
 language: python
 
 env:
-- MOD1="plusser"
-- MOD2="yamler"
+  global:
+  - MOD1="plusser"
+  - MOD2="yamler"
 
 python:
 - '2.7'

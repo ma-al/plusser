@@ -64,7 +64,7 @@ def main():
                 'SN': idx,
                 'Amount': float(val['Amount']),
                 'Balance': float(val['Balance']),
-                'Notes': ' '.join(val['Transaction Description'].split()),
+                'Notes': [' '.join(val['Transaction Description'].split())],
                 'Date': nd
             }
         val.update(new)

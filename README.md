@@ -1,5 +1,8 @@
 Description
 ===========
+
+Plusser
+-------
 Reads in a CSV like so:
 ```bash
 money.txt
@@ -17,6 +20,11 @@ Then calculates a running total, and re-inserts back to the file like so:
 2015-01-09 | 14:20:01 +1100 | -1 | N/A | Lost
 2015-01-09 | 19:21:01 +1100 | 00 | N/A | Running Total: 65
 ```
+
+Yaml-er
+-------
+Reads in a CSV and nicely reformats it into a YAML.
+
 
 Code Quality Checks
 ===================

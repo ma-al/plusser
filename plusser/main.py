@@ -17,10 +17,10 @@ def parse_arguments():
     pars.add_argument(
         '-s', '--save', action='store_true', help='Save all output to files')
     pars.add_argument(
-        'csv',
-        metavar='input_csv',
+        'infile',
+        metavar='input_file',
         type=argparse.FileType('r'),
-        help='The CSV file to convert')
+        help='The file to process')
 
     args = pars.parse_args()
     for key, val in vars(args).iteritems():
@@ -61,12 +61,12 @@ def main():
     """Main entry point."""
     args = parse_arguments()
 
-    with args.csv as f:
-        data = [line.strip().split('|') for line in args.csv]
+    with args.infile as f:
+        data = [line.strip().split('|') for line in args.infile]
         data = [[ele.strip() for ele in lst] for lst in data]
 
     filename = data.pop(0)
-    assert os.path.basename(args.csv.name) in filename
+    assert os.path.basename(args.infile.name) in filename
 
     data = verify(data)
 
@@ -74,7 +74,7 @@ def main():
     lts = tz.localize(datetime.today())
 
     show(data)
-    amounts = [int(d[2]) for d in data if len(d) == 5]
+    amounts = [float(d[2]) for d in data if len(d) == 5]
     append = [
         lts.strftime('%Y-%m-%d'), lts.strftime('%H:%M:%S %z'), '00', 'N/A',
         'Running Total: {}'.format(sum(amounts))
@@ -84,7 +84,7 @@ def main():
     print append[-1]
 
     if args.save:
-        with open(args.csv.name, 'a') as f:
+        with open(args.infile.name, 'a') as f:
             f.write(' | '.join(append) + '\n')
 
 
